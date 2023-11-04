@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Home() {
   const [title, setTitle] = useState('');
@@ -6,6 +7,7 @@ export default function Home() {
   const [description, setDescription] = useState('');
   const [photo, setPhoto] = useState(null); // Use null to represent the image file
   const [size, setSize] = useState('');
+  const router = useRouter();
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -14,7 +16,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    router.push('/success');
     // Handle the form submission, e.g., send data to a server or perform actions
     // You can access the values in `title`, `price`, `description`, `photo`, and `size` states here
   };
