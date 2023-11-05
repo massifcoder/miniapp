@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+
+const tele = window.Telegram.WebApp;
 
 export default function Home() {
   const [title, setTitle] = useState('');
@@ -20,6 +22,10 @@ export default function Home() {
     // Handle the form submission, e.g., send data to a server or perform actions
     // You can access the values in `title`, `price`, `description`, `photo`, and `size` states here
   };
+
+  useEffect(()=>{
+    tele.ready();
+  })
 
   return (
     <div className="w-full max-w-md">
